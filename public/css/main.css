@@ -1,0 +1,367 @@
+@font-face {
+    font-family: 'Open Sans Extra Bold';
+    src: local('Open Sans Extra Bold'), local('Open-Sans-Extra-Bold'),
+    url('/fonts/OpenSansExtraBold.ttf') format('truetype');
+    font-weight: 800;
+    font-style: bold;
+}
+.open-sans
+{
+    font-family: 'Open Sans', sans-serif;
+}
+body
+{
+    font-family: 'Open Sans', sans-serif;
+}
+.bg
+{
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.title-section
+{
+    font-size: 35px;
+    line-height: 140%;
+}
+.green-letter
+{
+    color: #169B73;
+}
+.desc-text
+{
+    font-size: 16px;
+    line-height: 160%;
+}
+.first-style-button
+{
+    background: linear-gradient(180deg, #169B73 0%, #076B59 100%);
+    box-shadow: 0px 4px 25px rgba(0, 0, 0, 0.25);
+    border-radius: 50px;
+    border:0;
+    padding: 9px 20px;
+
+}
+.second-style-button{
+    position:relative;
+}
+.second-style-button:after
+{
+    content:'';
+    position: absolute;
+    top:42%;
+    right:-30%;
+    background-image: url('http://logic.kg/wp-content/uploads/2019/10/Group-70-1-1.png');
+    width:78px;
+    height:7px;
+    background-size:cover;
+}
+.third-button
+{
+    position:relative;
+}
+.third-button:after
+{
+    content:'';
+    position: absolute;
+    top:42%;
+    right:-30%;
+    background-image: url('http://logic.kg/wp-content/uploads/2019/10/Group-94-1.png');
+    width:78px;
+    height:7px;
+    background-size:cover;
+}
+.text-mo {
+    background: url(http://logic.kg/wp-content/uploads/2019/10/ezgif.com-optimize.gif);
+    background-size: contain;
+    background-position: center;
+    -webkit-background-clip: text;
+    color: #005b5296;
+    left: 80px;
+    font-family: "Open Sans Extra Bold"!important;
+    position: relative;
+    font-weight: 900;
+    font-size: 235px;
+    line-height: 100%;
+    letter-spacing: -0.1em;
+    text-transform: uppercase;
+    text-shadow: 0px 20px 100px #0000009c;
+    font-feature-settings: 'pnum' on, 'lnum' on;
+}
+.collona-advant
+{
+    width:14.2%;
+    position: relative;
+    background-size: cover;
+}
+.advant-text
+{
+    font-size:14px;
+    line-height: 100%;
+    /*padding:0% 5%;*/
+    font-weight: 500;
+}
+.ex-collona
+{
+    width:19%;
+}
+.ex-title
+{
+    font-size:15px;
+    font-weight: 700;
+    line-height: 140%;
+}
+.ex-text
+{
+    font-size: 14px;
+    line-height: 15px;
+    font-weight: 400;
+}
+.ex-block
+{
+    min-height: 190px;
+    box-shadow: 0 10px 50px rgba(0,0,0,0.08), 0 13px 45px rgba(0,0,0,0.08);
+}
+.project-block
+{
+    box-shadow: 0 30px 50px 0px #4e4e4e5c;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    min-height: 160px;
+}
+.client-column
+{
+    border:1px solid rgba(163,163,163,0.26);
+}
+.client-image
+{
+    transition: 0.5s;
+}
+.client-column:hover .client-image
+{
+    transform: scale(1.1);
+}
+.news-title
+{
+    font-size: 18px;
+    line-height: 25px;
+    font-weight: 600;
+}
+.footer-title
+{
+    font-size: 20px;
+    line-height: 180%;
+    text-transform: uppercase;
+    color: #169B73;
+}
+.footer-text
+{
+    font-size: 16px;
+    line-height: 140%;
+}
+.menu-point
+{
+    font-size: 15px;
+    line-height: 20px;
+}
+.menu-point:hover
+{
+    text-decoration: underline;
+}
+#canvas
+{
+    position: absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+}
+.path_1
+{
+    /*animation-name: svg;*/
+    /*animation-duration: 3s;*/
+    /*animation-iteration-count: infinite;*/
+    /*fill: white;*/
+    /*transition: 0.4s;*/
+}
+.about-text
+{
+    font-size: 15px;
+    line-height: 140% ;
+}
+.rotate-text
+{
+    font-size: 145px;
+    line-height: 90%;
+    color: #169B73;
+    transform: rotate(-90deg);
+    font-family: "Open Sans Extra Bold";
+}
+.logic-text
+{
+    font-size:35px;
+    line-height: 160%;
+    color: #169B73;
+    font-family: "Open Sans Extra Bold";
+}
+.about_titles
+{
+    font-size: 70px;
+    line-height: 120%;
+    color: #169B73;
+    font-family: "Open Sans Extra Bold";
+}
+.adv-title
+{
+    font-size: 30px;
+    line-height: 160%;
+}
+.menuse
+{
+    transition: 0.3s
+}
+.modal-border
+{
+    border:1px solid #000000!important;
+}
+.modal-button
+{
+    border:1px solid #fefefe;
+}
+.icos-done
+{
+    color: #000000!important;
+}
+.solid-nav {
+    background: white !important;
+    top: 0% !important;
+}
+.team-title
+{
+    font-size: 20px;
+    line-height: 140%;
+    font-weight: 600;
+}
+.team-point-title
+{
+    font-size: 25px;
+    line-height: 140%;
+    font-weight: bold;
+}
+.team-desc
+{
+    font-size: 18px;
+    line-height: 140%;
+}
+.news-block
+{
+    background: #fefefe;
+    box-shadow: 10px 14px 50px rgba(0, 0, 0, 0.15);
+}
+.news-title
+{
+    font-size: 16px;
+    line-height: 140%;
+    font-weight: 600;
+}
+.news-desc
+{
+    font-size: 15px;
+    line-height: 140%;
+}
+.project-image
+{
+    height:200px;
+    background-size: cover;
+    background-position: center;
+}
+.project-bg
+{
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: right bottom;
+}
+@keyframes svg {
+    0% {
+        fill: #fefefe!important;
+    }
+    15%
+    {
+        fill:#D5FFD7!important;
+    }
+    30%
+    {
+        fill: #9bff9f;
+    }
+    60%
+    {
+        fill: #cdff7e;
+    }
+    75%
+    {
+        fill: #65ff12;
+    }
+    90%
+    {
+        fill: #d5ffd7;
+    }
+    100%
+    {
+        fill: #fefefe;
+    }
+}
+@media screen and (max-width: 768px){
+    body
+    {
+        overflow-x: hidden!important;
+    }
+    .text-mo
+    {
+        font-size: 120px;
+        left:0px;
+    }
+    .collona-advant
+    {
+        width:100%;
+    }
+    .ex-collona
+    {
+        width:100%;
+    }
+    .third_section
+    {
+        background: none!important;
+        height:auto!important;
+    }
+    .forth_section
+    {
+        background: none!important;
+        box-shadow: none!important;
+    }
+    .clients
+    {
+        margin-top:15%!important;
+    }
+    .path_1
+    {
+        width: 180px!important;
+    }
+    .derevo
+    {
+        top:15%!important;
+    }
+    .about_titles
+    {
+        font-size: 33px;
+    }
+    .footer
+    {
+        overflow-x: hidden;
+    }
+    .cont
+    {
+        overflow-x: hidden;
+    }
+}
