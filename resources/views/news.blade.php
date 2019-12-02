@@ -34,13 +34,13 @@
                         <p class="news-desc">
                             {{ str_limit($new->description, $limit = 75, $end = '...') }}
                         </p>
-                        <div class="d-flex">
-                            <a href="{{ route('news_page',['id' => $new->id]) }}">
-                        <button class="first-style-button open-sans text-white my-3">
-                            Читать новость
-                        </button>
-                            </a>
-                        </div>
+                    </div>
+                    <div class="position-relative" style="bottom:100px;left:45px;">
+                        <a href="{{ route('news_page',['id' => $new->id]) }}">
+                            <button class="first-style-button open-sans text-white my-3 pointer translateY-1">
+                                Читать новость
+                            </button>
+                        </a>
                     </div>
                 </div>
                     @endforeach

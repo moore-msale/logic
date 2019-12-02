@@ -1,4 +1,4 @@
-<div class="container-fluid footer" style="background-color: #f6f6f6; margin-top: 7%;">
+<div class="container-fluid footer" id="contacts" style="background-color: #f6f6f6; margin-top: 7%;">
     <div class="container">
     <div class="row py-5">
         <div class="col-lg-3 col-12 px-0" data-aos="fade-right">
@@ -9,20 +9,20 @@
                 Адрес офиса:
             </p>
             <p class="footer-text" style="padding-right:25%;">
-                720060, Кыргызстан,
-                Бишкек, мкр. Асанбай 23/2
+                <a href="https://go.2gis.com/9hz41" class="text-dark">720060, Кыргызстан,
+                    Бишкек, мкр. Асанбай 23/2</a>
             </p>
             <p class="footer-title font-weight-bold mt-4 mb-0">
                 Телефон:
             </p>
             <p class="footer-text" style="padding-right:25%;">
-                +996 (312) 32 33 33
+                <a href="tel:+996 (312) 32 33 33" class="text-dark">+996 (312) 32 33 33</a>
             </p>
             <p class="footer-title font-weight-bold mt-4 mb-0">
                 Почта:
             </p>
             <p class="footer-text" style="padding-right:25%;">
-                office@logic.kg
+                <a href="mailto:office@logic.kg" class="text-dark">office@logic.kg</a>
             </p>
         </div>
         <div class="col-lg-5 col-12 py-lg-0 py-4 px-lg-2 px-0" data-aos="fade-up">
@@ -30,8 +30,8 @@
                 <h2 class="title-section open-sans font-weight-bold text-uppercase text-white">
                     Реквизиты компании «Logic»
                 </h2>
-                <div class="mt-5">
-                <a href="" class="nectar-button second-style-button magger text-white" style="background:none!important; border-radius:20px!important;border: 1px solid #fefefe; padding-left:26px; padding-top:10px; padding-bottom:10px; padding-right:53px;"><span>Подробнее</span></a>
+                <div class="mt-5 translateY-1">
+                    <a href="{{asset('files/Контакты_реквизиты_Logic.docx')}}" class="nectar-button second-style-button magger text-white " style="background:none!important; border-radius:20px!important;border: 1px solid #fefefe; padding-left:26px; padding-top:10px; padding-bottom:10px; padding-right:53px;"><span>Подробнее</span></a>
                 </div>
             </div>
         </div>
@@ -67,16 +67,18 @@
             <img src="{{ asset('images/footer-logo.svg') }}" alt="">
         </div>
         <div class="footer-area d-flex px-2 justify-content-between align-items-center" style="width:20%;">
-            <img style="height: 70%;" src="{{ asset('images/footer-location.png') }}" alt=""><p class="ml-2 mb-0 font-weight-bold" style="font-size: 13px; line-height: 100%;">720060, Кыргызстан,
-Бишкек, мкр. Асанбай 23/2</p>
+            <img style="height: 70%;" src="{{ asset('images/footer-location.png') }}" alt=""><p class="ml-2 mb-0 font-weight-bold" style="font-size: 13px; line-height: 100%;">
+                <a href="https://go.2gis.com/9hz41" style="text-decoration: none;color: #000;">720060, Кыргызстан, Бишкек, мкр. Асанбай 23/2</a></p>
         </div>
         <div class="footer-area d-flex px-2 align-items-center" style="width:20%;">
-            <img style="height: 50%;" src="{{ asset('images/footer-phone.png') }}" alt=""><p class="ml-2 mb-0 font-weight-bold" style="font-size: 13px; line-height: 100%;">+996 (312) 32 33 33
+            <img style="height: 50%;" src="{{ asset('images/footer-phone.png') }}" alt=""><p class="ml-2 mb-0 font-weight-bold" style="font-size: 13px; line-height: 100%;"> <a href="tel:+996 (312) 32 33 33" style="text-decoration: none;color: #000;">+996 (312) 32 33 33</a>
             </p>
+
         </div>
         <div class="footer-area d-flex px-2 align-items-center" style="width:20%;">
-            <img style="height: 50%;" src="{{ asset('images/footer-mail.png') }}" alt=""><p class="ml-2 mb-0 font-weight-bold" style="font-size: 13px; line-height: 100%;">office@logic.kg
-            </p>
+            <img style="height: 50%;" src="{{ asset('images/footer-mail.png') }}" alt=""><a href="mailto:office@logic.kg" class="text-dark"><p class="ml-2 mb-0 font-weight-bold" style="font-size: 13px; line-height: 100%;">
+                office@logic.kg
+            </p></a>
         </div>
         <div class="footer-area d-flex px-2 align-items-center" style="width:20%;">
             <p class="ml-2 mb-0 font-weight-bold" style="font-size: 13px; line-height: 100%;">© copyright 2019
@@ -84,4 +86,54 @@
         </div>
     </div>
 </div>
+</div>
+<div class="modal fade" id="callModal" tabindex="15" role="form"
+     aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content feedback-content" style="background: #fefefe;">
+            <div>
+                <div class="modal-body p-5 text-center">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <h2 class="mb-5" style="font-size: 25px; line-height: 120%; color: #000000;">
+                        Оставьте нам свою заявку
+                    </h2>
+                    <div class="send-success-mail2 p-4 d-none">
+                        <i class="fas fa-check-circle" style="color:#00d920;"></i><span class="pl-2 text-fut-bold"
+                                                                                        style="color:#000000;">Заявка успешно отправлена!</span>
+                    </div>
+                    <div class="send-error-mail2 p-4 d-none">
+                        <i class="fas fa-exclamation-circle text-fut-bold text-white" style="color:#00d920;"></i><span
+                                class="pl-2" style="color:#000000;">Отзыв не был отправлен!</span>
+                    </div>
+                    <form id="callForm">
+                        <div class="form-group">
+                            <input class="w-100 mb-2 p-2" name="name" type="text" id="form-name2"
+                                   placeholder="Ваше имя*" required>
+                        </div>
+                        <div class="form-group">
+                            <input class="w-100 mb-2 p-2" name="phone" type="tel" id="form-phone2"
+                                   placeholder="Ваш номер телефона*" required>
+                        </div>
+                        <div class="form-group">
+                            <input class="w-100 mb-2 p-2" name="company" type="text" id="form-company2"
+                                   placeholder="Организация*" required>
+                        </div>
+                        <div class="form-group">
+                            <input class="w-100 mb-2 p-2" name="email" type="email" id="form-email2"
+                                   placeholder="Введите E-mail*" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea class="w-100 mb-2 p-2" name="message" type="message" id="form-message2"
+                                      placeholder="Сообщение*" required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <a id="ajax-message2" class="btn w-100" href="#" style="border-radius: 2px !important;background: #005b52;border: 1px solid #005b52;background-image: linear-gradient(#00423c,#005b52); color: #fff;">Отправить</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

@@ -15,10 +15,48 @@
     <link rel="stylesheet" href="{{ asset('css/main.css') }}">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
-
+    @push('styles')
+        <style>
+            .translateY-1 a:hover{
+                text-decoration: none;
+            }
+            .pointer:hover,.pointer:focus{
+                cursor: pointer;
+                opacity: 0.9;
+                outline: none;
+                -webkit-box-shadow: 2px 13px 26px -5px rgba(0,0,0,0.75);
+                -moz-box-shadow: 2px 13px 26px -5px rgba(0,0,0,0.75);
+                box-shadow: 2px 13px 26px -5px rgba(0,0,0,0.75);
+            }
+            .translateY-1,.translateX-1{
+                transition:0.3s;
+            }
+            .translateY-1:hover,.translateY-1:focus {
+                -webkit-transition: transform 0.3s;
+                transform: translateY(-0.25em)!important;
+            }
+            .translateX-1:hover,.translateX-1:focus {
+                -webkit-transition: transform 0.3s;
+                transform: translateX(0.25em)!important;
+            }
+            #preloader {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                z-index: 9999;
+                background-image: url({{asset('images/10.gif')}});
+                background-repeat: no-repeat;
+                background-color: #FFF;
+                background-position: center;
+            }
+        </style>
+    @endpush
     @stack('styles')
 </head>
 <body>
+<div id="preloader"></div>
 @include('partials.header')
 @yield('content')
 @include('partials.footer')
@@ -48,6 +86,60 @@
 
             }
 
+        });
+    });
+</script>
+<script>
+    $(window).on('load', function() {
+        $("#preloader").delay(300).fadeOut(100);
+    });
+</script>
+<script>
+    $('#ajax-message2').click(e => {
+        e.preventDefault();
+        let name = $('#form-name2');
+        let email = $('#form-email2');
+        let phone = $('#form-phone2');
+        let company = $('#form-company2');
+        let message = $('#form-message2');
+        let datas = [name.val(),email.val(),phone.val(),message.val()];
+
+        if()
+        $(".send-success-mail2").removeClass('d-none');
+
+        $.ajax({
+            url: '{{ route('mail') }}',
+            method: 'POST',
+            data: {
+                "_token": "{{ csrf_token() }}",
+                "name": name.val(),
+                "phone": phone.val(),
+                "email": email.val(),
+                "message": message.val(),
+                "company":company.val(),
+            },
+            success: data => {
+                $('#form-name2').val('');
+                $('#form-phone2').val('');
+                $('#form-email2').val('');
+                $('#form-message2').val('');
+                $(".send-success-mail2").removeClass('d-none');
+            },
+            error: () => {
+            }
+        });
+    })
+</script>
+<script>
+    $(document).ready(function(){
+        $("#menu").on("click",".links", function (event) {
+            event.preventDefault();
+            if (document.location.pathname.length > 1) {
+                window.location.replace("/");
+            }
+            var id  = $(this).attr('href'),
+                top = $(id).offset().top;
+            $('body,html').animate({scrollTop: top}, 1500);
         });
     });
 </script>

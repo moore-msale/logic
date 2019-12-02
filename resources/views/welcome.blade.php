@@ -5,19 +5,47 @@
         {
             overflow-x: hidden;
         }
+        .pointer:hover{
+            cursor: pointer;
+            opacity: 0.9;
+        }
+        body.preloader-site {
+            overflow: hidden;
+        }
+
+        .preloader-wrapper {
+            height: 100%;
+            width: 100%;
+            background: #FFF;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 9999999;
+        }
+
+        .preloader-wrapper .preloader {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+            width: 120px;
+        }
     </style>
 @endpush
 @section('content')
     {{--background-image: url({{ asset('images/first_section_bg.png') }})--}}
-    <div class="cont">
 
+    <div class="cont">
         <div class="container-fluid bg position-relative" style="background:transparent;">
             <canvas id="canvas"></canvas>
             <div class="row" style="padding-top:14%; padding-bottom: 10%;">
                 <div class="col-lg-1 col-12 d-lg-block d-none" data-aos="fade-right">
                     <div style="transform: rotate(-90deg) translateX(-200px);">
-                    <div style="font-size:16px; line-height: 140%; width:400px; letter-spacing: 0.1em; color:#000000;">
+                    <div style="font-size:16px; line-height: 140%; width:400px; letter-spacing: 0.1em; color:#000000;" class="translateX-1 aos-init aos-animate">
+                        <a href="#contacts" style="text-decoration: none;color: #000000; " >
                         <img src="{{ asset('images/line_section.png') }}" alt=""><span class="ml-5">Посмотреть контакты</span></div>
+                        </a>
                     </div>
                 </div>
                 <div class="col-lg-6 col-12 pt-lg-0 pt-5" style="padding-left: 6%;">
@@ -27,13 +55,9 @@
                         ИТ - инфраструктуры организаци<span class="green-letter">и</span>
                     </h1>
                     <div class="pt-3">
-                        <p class="desc-text open-sans" data-aos="fade-right" style="padding-right: 30%;">
-                            Давно выяснено, что при оценке дизайна и
-                            композиции читаемый текст мешает
-                        </p>
                     </div>
                     <div class="text-center" data-aos="fade-right">
-                        <button class="first-style-button open-sans text-white">
+                        <button class="first-style-button open-sans text-white pointer translateY-1" data-toggle="modal" data-target="#callModal">
                             Обратный звонок
                         </button>
                     </div>
@@ -64,8 +88,8 @@
                         <span class="green-letter" style="font-size: 50px; padding-right:2%;">23</span>
                         <span style="font-size:14px; color: white; text-transform:uppercase; ">года на рынке <br> информационных услуг</span>
                     </div>
-                    <div class="pt-3" data-aos="fade-right">
-                    <a href="/about_us" class="nectar-button second-style-button magger text-white" style="background:none!important; border-radius:20px!important;border: 1px solid #fefefe; padding-left:26px; padding-top:10px; padding-bottom:10px; padding-right:53px;"><span>Подробнее</span></a>
+                    <div class="pt-3 translateY-1" data-aos="fade-right">
+                        <a href="/about_us" class="nectar-button second-style-button magger text-white" style="background:none!important; border-radius:20px!important;border: 1px solid #fefefe; padding-left:26px; padding-top:10px; padding-bottom:10px; padding-right:53px;"><span>Подробнее</span></a>
                     </div>
                 </div>
                 <div class="col-lg-7 col-12 text-lg-left text-center pt-lg-0 pt-5" data-aos="fade-up">
@@ -132,7 +156,7 @@
         </div>
         </div>
     </div>
-    <div class="container-fluid bg d-flex align-items-center third_section" style="background-image: url({{ asset('images/third_section_bg.png') }}); height:1000px; background-size: auto; overflow-x: hidden">
+    <div class="container-fluid bg d-flex align-items-center third_section" id="services" style="background-image: url({{ asset('images/third_section_bg.png') }}); height:1000px; background-size: auto; overflow-x: hidden">
         <div class="container">
             <div class="row">
                 <div class="d-lg-none d-block my-5 col-12">
@@ -227,11 +251,12 @@
             </div>
         </div>
     </div>
-    <div class="container-fluid mt-lg-0 mt-5">
-        <h2 class="title-section open-sans font-weight-bold text-uppercase text-center" data-aos="fade-up">
+    <div id="projects"></div>
+    <div class="container-fluid mt-lg-0 mt-5 pt-5">
+        <h2 class="title-section open-sans font-weight-bold text-uppercase text-center mt-2" data-aos="fade-up">
             <span class="green-letter">Н</span>аши реализованные проект<span class="green-letter">ы</span>
         </h2>
-        <div class="container bg mt-5 p-lg-5 p-0 forth_section" style="background-image: url({{ asset('images/forth_section_bg.png') }}); box-shadow: 0 30px 50px 0px #4e4e4e5c; background-size: 100% 100%">
+        <div class="container bg mt-5 p-lg-5 p-0 forth_section"  style="background-image: url({{ asset('images/forth_section_bg.png') }}); box-shadow: 0 30px 50px 0px #4e4e4e5c; background-size: 100% 100%">
             <div class="row">
                 <div class="col-lg-4 col-12 p-3">
                     @if(isset($projects[0]))
@@ -254,7 +279,7 @@
                         </p>
                     </div>
                         @endif
-                    <div class="pt-5 d-lg-block d-none">
+                    <div class="pt-5 d-lg-block d-none translateY-1">
                     <a href="/projects" class="third-button d-none-media"  data-aos="fade-right" style="background:none!important; border-radius:20px!important;border: 1px solid #000000; padding-left:26px; padding-top:10px; padding-bottom:10px; padding-right:53px; margin-top:5%;"><span style="color:black;">Подробнее</span></a>
                     </div>
                     </div>
@@ -281,13 +306,14 @@
                     </div>
                         @endif
                 </div>
-                <div class="pt-5 d-lg-none d-block pl-4">
+                <div class="pt-5 d-lg-none d-block pl-4 translateY-1">
                     <a href="/projects" class="third-button d-none-media" data-aos="fade-right" style="background:none!important; border-radius:20px!important;border: 1px solid #000000; padding-left:26px; padding-top:10px; padding-bottom:10px; padding-right:53px; margin-top:5%;"><span style="color:black;">Подробнее</span></a>
                 </div>
             </div>
         </div>
     </div>
-    <div class="container clients" style="margin-top:10%;">
+    <div id="clients"></div>
+    <div class="container clients"  style="margin-top:10%;">
         <div class="row justify-content-center mt-lg-0">
             <div class="col-lg-8 col-12 px-0">
              <h2 class="title-section open-sans font-weight-bold text-uppercase text-center"  data-aos="fade-up">
@@ -306,8 +332,8 @@
             @endforeach
         </div>
     </div>
-
-    <div class="container-fluid bg" style="background-image: url({{ asset('images/sixth_section_bg.png') }}); margin-top:7%;">
+    <div id="jobs"></div>
+    <div class="container-fluid bg"  style="background-image: url({{ asset('images/sixth_section_bg.png') }}); margin-top:7%;">
         <div class="container" style="padding:7% 0%;">
             <div class="row">
             <div class="col-lg-6 col-12 px-5">
@@ -323,14 +349,15 @@
                     правильный путь решения даже самых насущных
                     проблем клиента.
                 </p>
-                <div class="mt-4 pl-lg-0 pl-3">
+                <div class="mt-4 pl-lg-0 pl-3 translateY-1">
                 <a href="/team" class="nectar-button second-style-button magger text-white" data-aos="fade-left" style="background:none!important; border-radius:20px!important;border: 1px solid #fefefe; padding-left:26px; padding-top:10px; padding-bottom:10px; padding-right:53px;"><span>Подробнее</span></a>
                 </div>
             </div>
             </div>
         </div>
     </div>
-    <div class="container mt-5">
+    <div  id="partners"></div>
+    <div class="container mt-5 pt-5">
         <div class="row justify-content-center">
             <div class="col-12">
                 <h2 class="title-section open-sans font-weight-bold text-uppercase text-center" data-aos="fade-up">
@@ -367,15 +394,21 @@
             <div class="col-lg-6 col-12 p-5" data-aos="fade-right" style="background-image: url({{ asset('images/news_block.png') }}); box-shadow: 0px 4px 50px rgba(0, 0, 0, 0.15);">
                 <p class="desc-text text-white">{{ \Carbon\Carbon::parse($news[0]->created_at)->format('Y.m.d') }}</p>
                 <p class="news-title text-white mt-3">
-                    {{ $news[0]->title }}
+                    <a href="{{ route('news_page',['id' => $news[0]->id]) }}" class="text-white"> {{ $news[0]->title }}</a>
                 </p>
                 <p class="desc-text text-white mt-3">
-                    {{ str_limit($news[0]->description, $limit = 155, $end = '...') }}
+                    <a href="{{ route('news_page',['id' => $news[0]->id]) }}" class="text-white"> {{ str_limit($news[0]->description, $limit = 155, $end = '...') }}</a>
                 </p>
                 <a href="{{ route('news_page',['id' => $news[0]->id]) }}" class="second-style-button text-white" style="background:none!important; padding-left:5px; padding-top:10px; padding-bottom:10px; padding-right:35px; margin-bottom:20%"><span>Читать полностью</span></a>
+                <br>
+                <button class="first-style-button open-sans text-white pointer mt-5 translateY-1">
+                    <a href="/news" class="text-white">Все новости</a>
+                </button>
             </div>
             <div class="col-lg-6 col-12 px-lg-3 px-0 pt-lg-0 pt-3"  data-aos="fade-left">
-                <img class="w-100" style="box-shadow: 0px 4px 50px rgba(0, 0, 0, 0.15);" src="{{ asset('images/news2.png') }}" alt="">
+                <a href="{{ route("news2")}}">
+                    <img class="w-100" style="box-shadow: 0px 4px 50px rgba(0, 0, 0, 0.15);" src="{{ asset('images/news2.png') }}" alt="">
+                </a>
             <div class="container-fluid mt-3">
                 <div class="row">
                     <div class="col-lg-6 col-12 px-0" data-aos="fade-left">
@@ -419,5 +452,6 @@
         </div>
     </div>
     </div>
+    <div id="contacts"></div>
 @endsection
 

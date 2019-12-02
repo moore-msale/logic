@@ -19,6 +19,7 @@ Route::get('/', function () {
             'projects' => \App\Project::all()->reverse()->take(4),
         ]);
 });
+Route::post('/mail', 'MailController@mail')->name('mail');
 
 Route::get('about_us', function () {
    return view('about_us');
@@ -31,6 +32,9 @@ Route::get('team', function () {
 Route::get('news', function () {
     return view('news',['news' => \App\News::all()]);
 });
+Route::get('news2', function () {
+    return view('news2');
+})->name('news2');
 Route::get('projects', function () {
     return view('projects',['projects' => \App\Project::all()->reverse()]);
 });
