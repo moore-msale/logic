@@ -44,15 +44,19 @@
                     <div style="transform: rotate(-90deg) translateX(-200px);">
                     <div style="font-size:16px; line-height: 140%; width:400px; letter-spacing: 0.1em; color:#000000;" class="translateX-1 aos-init aos-animate">
                         <a href="#contacts" style="text-decoration: none;color: #000000; " >
-                        <img src="{{ asset('images/line_section.png') }}" alt=""><span class="ml-5">Посмотреть контакты</span></div>
+                        <img src="{{ asset('images/line_section.png') }}" alt=""><span class="ml-5">{{ $content->link1 }}</span>
                         </a>
                     </div>
+                </div>
                 </div>
                 <div class="col-lg-6 col-12 pt-lg-0 pt-5" style="padding-left: 6%;">
                     <div class="mx-auto" style="max-width: 700px">
                     <h1 class="title-section open-sans font-weight-bold text-uppercase" data-aos="fade-right" style="color: #000000;">
-                        <span class="green-letter">М</span>ы способствуем эволюции
-                        ИТ - инфраструктуры организаци<span class="green-letter">и</span>
+                        <?php
+                            $title1 = strlen($content->title1);
+                        ?>
+                        {{--@dd($title1)--}}
+                        <span class="green-letter">{{ substr($content->title1, 0,2)  }}</span>{!!  substr($content->title1, 2,$title1 - 4)  !!}<span class="green-letter">{!!  substr($content->title1, $title1 - 2,$title1 - 1)  !!}</span>
                     </h1>
                     <div class="pt-3">
                     </div>
@@ -66,7 +70,7 @@
                 <div class="col-1 d-lg-block d-none"></div>
                 <div class="col-lg-4 col-12 text-center d-flex pt-lg-0 pt-5">
                     <div class="position-absolute" style="z-index: 999; top:50%; left:50%; transform: translate(-50%, -50%);">
-                        <a href="{{ asset('images/play_button.png') }}" data-fancybox="logic-video"><img src="{{ asset('images/play_button.png') }}" alt=""></a></div>
+                        <a href="{{ $content->video_link }}" data-fancybox="logic-video"><img src="{{ asset('images/play_button.png') }}" alt=""></a></div>
                     <img class="mx-auto" style="width:60%;" src="{{ asset('images/first_section_video.png') }}" alt="">
                 </div>
             </div>
@@ -77,16 +81,19 @@
             <div class="row">
                 <div class="col-lg-5 col-12 pl-lg-0 pl-3">
                     <h2 class="title-section open-sans font-weight-bold text-uppercase text-white" data-aos="fade-right">
-                        <span class="green-letter">О</span> нашей компани<span class="green-letter">и</span>
+                        <?php
+                            $title2 = strlen($content->title2);
+                        ?>
+                            <span class="green-letter">{{ substr($content->title2, 0,2)  }}</span>{!!  substr($content->title2, 2,$title2 - 4)  !!}<span class="green-letter">{!!  substr($content->title2, $title2 - 2,$title2 - 1)  !!}</span>
                     </h2>
                     <div class="pt-3">
                         <p class="desc-text open-sans text-white" data-aos="fade-right">
-                            Мы – лидирующий системный интегратор Кыргызстана, который предоставляет инновационные продукты и решения с 1996 года. Высокий уровень компетенции и накопленный опыт позволяют нам качественно выполнять проекты любого масштаба.
+                            {{$content->desc2}}
                         </p>
                     </div>
                     <div class="padder" data-aos="fade-right" style="display:flex; align-items:center; padding-bottom:3%;">
-                        <span class="green-letter" style="font-size: 50px; padding-right:2%;">23</span>
-                        <span style="font-size:14px; color: white; text-transform:uppercase; ">года на рынке <br> информационных услуг</span>
+                        <span class="green-letter" style="font-size: 50px; padding-right:2%;">{{$content->year2}}</span>
+                        <span style="font-size:14px; max-width: 193px; color: white; text-transform:uppercase; ">{{$content->text2}}</span>
                     </div>
                     <div class="pt-3 translateY-1" data-aos="fade-right">
                         <a href="/about_us" class="nectar-button second-style-button magger text-white" style="background:none!important; border-radius:20px!important;border: 1px solid #fefefe; padding-left:26px; padding-top:10px; padding-bottom:10px; padding-right:53px;"><span>Подробнее</span></a>
@@ -100,57 +107,57 @@
     </div>
     <div class="container-fluid" style="padding:5% 0%;">
         <h2 class="title-section open-sans font-weight-bold text-uppercase text-center" data-aos="fade-up">
-            <span class="green-letter">П</span>РОЦЕСС ВЗАИМОДЕЙСТВИЯ:
+            <?php
+                $title3 = strlen($content->title3);
+                $podtitle3 = strlen($content->titler2)
+            ?>
+            <span class="green-letter">{{ substr($content->title3,0,2) }}</span>{{substr($content->title3,2,$title3 - 1)}}
             <p style="font-weight: 300;">
-                Как мы работае<span class="green-letter">М</span>
+                {{ substr($content->titler2, 0, $podtitle3 - 2) }}<span class="green-letter">{{ substr($content->titler2, $podtitle3 - 2, $podtitle3 - 1 ) }}</span>
             </p>
         </h2>
         <div class="container pt-4">
         <div class="row">
             <div class="collona-advant p-4 text-center" data-aos="fade-right" style="background-image: url({{ asset('images/advant1.png') }})">
-                <img src="{{ asset('images/support.png') }}" alt="">
+                <img src="{{ asset('storage/'.$content->step1_image) }}" alt="">
                 <p class="advant-text text-white pt-2">
-                    Запрос от клиента
+                    {{ $content->step1_text }}
                 </p>
             </div>
             <div class="collona-advant p-4 text-center" data-aos="fade-right" style="background-image: url({{ asset('images/advant2.png') }})">
-                <img src="{{ asset('images/puzzle.png') }}" alt="">
+                <img src="{{ asset('storage/'.$content->step2_image) }}" alt="">
                 <p class="advant-text pt-2">
-                    Разработка решения
+                    {{ $content->step2_text }}
                 </p>
             </div>
             <div class="collona-advant p-4 text-center" data-aos="fade-right" style="background-image: url({{ asset('images/advant3.png') }})">
-                <img src="{{ asset('images/customer-service1.png') }}" alt="">
+                <img src="{{ asset('storage/'.$content->step3_image) }}" alt="">
                 <p class="advant-text text-white pt-2">
-                    Согласование
-                    решения с клиентом
+                    {{ $content->step3_text }}
                 </p>
             </div>
             <div class="collona-advant p-4 text-center" data-aos="fade-right" style="background-image: url({{ asset('images/advant2.png') }})">
-                <img src="{{ asset('images/puzzle1.png') }}" alt="">
+                <img src="{{ asset('storage/'.$content->step4_image) }}" alt="">
                 <p class="advant-text pt-2">
-                    Предоставления коммерческого предложения
+                    {{ $content->step4_text }}
                 </p>
             </div>
             <div class="collona-advant p-4 text-center" data-aos="fade-right" style="background-image: url({{ asset('images/advant3.png') }})">
-                <img src="{{ asset('images/support.png') }}" alt="">
+                <img src="{{ asset('storage/'.$content->step5_image) }}" alt="">
                 <p class="advant-text text-white pt-2">
-                    Заключение
-                    договора
+                    {{ $content->step5_text }}
                 </p>
             </div>
             <div class="collona-advant p-4 text-center" data-aos="fade-right" style="background-image: url({{ asset('images/advant2.png') }})">
-                <img src="{{ asset('images/puzzle.png') }}" alt="">
+                <img src="{{ asset('storage/'.$content->step6_image) }}" alt="">
                 <p class="advant-text pt-2">
-                    Реализация
-                    проекта
+                    {{ $content->step6_text }}
                 </p>
             </div>
             <div class="collona-advant p-4 text-center" data-aos="fade-right" style="background-image: url({{ asset('images/advant3.png') }})">
-                <img src="{{ asset('images/customer-service1.png') }}" alt="">
+                <img src="{{ asset('storage/'.$content->step7_image) }}" alt="">
                 <p class="advant-text text-white pt-2">
-                    Сервисная
-                    поддержка
+                    {{ $content->step7_text }}
                 </p>
             </div>
         </div>
@@ -161,90 +168,83 @@
             <div class="row">
                 <div class="d-lg-none d-block my-5 col-12">
                 <div class="text-uppercase text-center" data-aos="fade-up" style="line-height: 140%; font-size: 30px; font-weight: 700;">
-                    Наша экспертиза
+                    {{ $content->title4 }}
                 </div>
                 </div>
                 <div class="ex-collona mr-lg-3 mr-0">
                     <div class="p-3 bg ex-block" data-aos="fade-right" style="background-image: url({{ asset('images/ex1.png') }})">
                         <p class="ex-title">
-                            Серверное оборудование
+                            {{ $content->expert1_title }}
                         </p>
                         <p class="ex-text">
-                            Серверы от мировых
-                            производителей под любые
-                            задачи и требования
-                            организации.
+                            {{ $content->expert1_desc }}
                         </p>
                     </div>
                     <div class="p-3 mt-3 bg ex-block" data-aos="fade-right" style="background-image: url({{ asset('images/ex1.png') }})">
                         <p class="ex-title">
-                            Центр обработки данных
+                            {{ $content->expert2_title }}
                         </p>
                         <p class="ex-text">
-                            Ваши ИТ-ресурсы в безопасном месте.
+                            {{ $content->expert2_desc }}
                         </p>
                     </div>
                 </div>
                 <div class="ex-collona mt-lg-0 mt-3">
                     <div class="p-3 bg ex-block" data-aos="fade-right" style="background-image: url({{ asset('images/ex1.png') }})">
                         <p class="ex-title">
-                            Серверное оборудование
+                            {{ $content->expert3_title }}
                         </p>
                         <p class="ex-text">
-                            Универсальные устройства для построения сетей связи и ИТ-инфраструктуры организаций.
+                            {{ $content->expert3_desc }}
                         </p>
                     </div>
                     <div class="p-3 mt-3 bg ex-block" data-aos="fade-right" style="background-image: url({{ asset('images/ex1.png') }})">
                         <p class="ex-title">
-                            Персональные системы
+                            {{ $content->expert4_title }}
                         </p>
                         <p class="ex-text">
-                            Широкий выбор продукции для обеспечения максимальной производительности и выполнения сложных работ.
+                            {{ $content->expert4_desc }}
                         </p>
                     </div>
                 </div>
                 <div class="ex-collona align-items-center d-lg-flex d-none">
                     <p class="text-uppercase text-center text-white" data-aos="fade-up" style="line-height: 140%; font-size: 30px; font-weight: 700;">
-                        Наша экспертиза
+                        {{ $content->title4 }}
                     </p>
                 </div>
                 <div class="ex-collona mr-lg-3 mr-0 mt-lg-0 mt-3">
                     <div class="p-3 bg ex-block" data-aos="fade-left" style="background-image: url({{ asset('images/ex1.png') }})">
                         <p class="ex-title">
-                            Печатное оборудование
+                            {{ $content->expert5_title }}
                         </p>
                         <p class="ex-text">
-                            Качественное оборудование для печати, переноса изображения и обработки.
+                            {{ $content->expert5_desc }}
                         </p>
                     </div>
                     <div class="p-3 mt-3 bg ex-block" data-aos="fade-left" style="background-image: url({{ asset('images/ex1.png') }})">
                         <p class="ex-title">
-
-                            Программное обеспечение
+                            {{ $content->expert6_title }}
                         </p>
                         <p class="ex-text">
-                            Большое количество программной продукции, позволяющей решить любые бизнес-задачи.
+                            {{ $content->expert6_desc }}
                         </p>
                     </div>
                 </div>
                 <div class="ex-collona mt-lg-0 mt-3">
                     <div class="p-3 bg ex-block" data-aos="fade-left" style="background-image: url({{ asset('images/ex1.png') }})">
                         <p class="ex-title">
-
-                            Сервисная поддержка
+                            {{ $content->expert7_title }}
                         </p>
                         <p class="ex-text">
-                            Авторизованный сервис-центр HP Inc. и Konica Minolta
-                            и услуги IT-аутсорсинга
+                            {{ $content->expert7_desc }}
                         </p>
                     </div>
                     <div class="p-3 mt-3 bg ex-block" data-aos="fade-left" style="background-image: url({{ asset('images/ex1.png') }})">
                         <p class="ex-title">
-
-                            Кибербезопасность
+                            {{ $content->expert8_title }}
                         </p>
                         <p class="ex-text">
-                            Программно-аппаратные комплексы, решающие современные проблемы информационной безопасности.
+                            {{ $content->expert8_desc }}
                         </p>
                     </div>
                 </div>
@@ -254,12 +254,16 @@
     <div id="projects"></div>
     <div class="container-fluid mt-lg-0 mt-5 pt-5">
         <h2 class="title-section open-sans font-weight-bold text-uppercase text-center mt-2" data-aos="fade-up">
-            <span class="green-letter">Н</span>аши реализованные проект<span class="green-letter">ы</span>
+            <?php
+            $title5 = strlen($content->title5);
+            ?>
+            <span class="green-letter">{{ substr($content->title5, 0,2)  }}</span>{!!  substr($content->title5, 2,$title5 - 4)  !!}<span class="green-letter">{!!  substr($content->title5, $title5 - 2,$title5 - 1)  !!}</span>
         </h2>
         <div class="container bg mt-5 p-lg-5 p-0 forth_section"  style="background-image: url({{ asset('images/forth_section_bg.png') }}); box-shadow: 0 30px 50px 0px #4e4e4e5c; background-size: 100% 100%">
             <div class="row">
                 <div class="col-lg-4 col-12 p-3">
                     @if(isset($projects[0]))
+                        <a href="{{ route('project_page',['id' => $projects[0]->id]) }}" style="color:#000000;">
                     <div class="p-4 project-block" data-aos="fade-right" style="background-image: url({{ asset('images/projects.png') }});">
                     <p class="ex-title">
                         {{ $projects[0]->title }}
@@ -268,8 +272,10 @@
                         {{ $projects[0]->mini_desc }}
                     </p>
                     </div>
+                        </a>
                     @endif
                     @if(isset($projects[1]))
+                            <a href="{{ route('project_page',['id' => $projects[1]->id]) }}" style="color:#000000;">
                     <div class="p-4 project-block mt-4" data-aos="fade-right" style="background-image: url({{ asset('images/projects.png') }});">
                         <p class="ex-title">
                             {{ $projects[1]->title }}
@@ -278,6 +284,7 @@
                             {{ $projects[1]->mini_desc }}
                         </p>
                     </div>
+                            </a>
                         @endif
                     <div class="pt-5 d-lg-block d-none translateY-1">
                     <a href="/projects" class="third-button d-none-media"  data-aos="fade-right" style="background:none!important; border-radius:20px!important;border: 1px solid #000000; padding-left:26px; padding-top:10px; padding-bottom:10px; padding-right:53px; margin-top:5%;"><span style="color:black;">Подробнее</span></a>
@@ -286,6 +293,7 @@
 
                 <div class="col-lg-4 col-12 p-3">
                     @if(isset($projects[2]))
+                        <a href="{{ route('project_page',['id' => $projects[2]->id]) }}" style="color:#000000;">
                     <div class="p-4 project-block" data-aos="fade-right" style="background-image: url({{ asset('images/projects.png') }});">
                         <p class="ex-title">
                             {{ $projects[2]->title }}
@@ -294,8 +302,10 @@
                             {{ $projects[2]->mini_desc }}
                         </p>
                     </div>
+                        </a>
                     @endif
                         @if(isset($projects[3]))
+                            <a href="{{ route('project_page',['id' => $projects[3]->id]) }}" style="color:#000000;">
                     <div class="p-4 project-block mt-4" data-aos="fade-right" style="background-image: url({{ asset('images/projects.png') }});">
                         <p class="ex-title">
                             {{ $projects[3]->title }}
@@ -304,6 +314,7 @@
                             {{ $projects[3]->mini_desc }}
                         </p>
                     </div>
+                            </a>
                         @endif
                 </div>
                 <div class="pt-5 d-lg-none d-block pl-4 translateY-1">
@@ -317,8 +328,10 @@
         <div class="row justify-content-center mt-lg-0">
             <div class="col-lg-8 col-12 px-0">
              <h2 class="title-section open-sans font-weight-bold text-uppercase text-center"  data-aos="fade-up">
-                  <span class="green-letter">Г</span>ОРДИМСЯ РАБОТОЙ С НАШИМИ
-                 КЛИЕНТАМ<span class="green-letter">И</span>
+                 <?php
+                 $title6 = strlen($content->title6);
+                 ?>
+                 <span class="green-letter">{{ substr($content->title6, 0,2)  }}</span>{!!  substr($content->title6, 2,$title6 - 4)  !!}<span class="green-letter">{!!  substr($content->title6, $title6 - 2,$title6 - 1)  !!}</span>
              </h2>
             </div>
         </div>
@@ -338,16 +351,15 @@
             <div class="row">
             <div class="col-lg-6 col-12 px-5">
                 <h2 class="text-uppercase px-lg-5 px-2 text-white text-center font-weight-bold"  data-aos="fade-right" style="font-size: 55px; line-height: 100%;">
-                    <span class="green-letter">Н</span>аша
-                    Команд<span class="green-letter">а</span>
+                    <?php
+                    $title7 = strlen($content->title7);
+                    ?>
+                    <span class="green-letter">{{ substr($content->title7, 0,2)  }}</span>{!!  substr($content->title7, 2,$title7 - 4)  !!}<span class="green-letter">{!!  substr($content->title7, $title7 - 2,$title7 - 1)  !!}</span>
                 </h2>
             </div>
             <div class="col-lg-6 col-12 pr-lg-5 pr-0 py-lg-0 py-4">
                 <p class="desc-text text-white pr-lg-5 pr-0 pl-lg-0 pl-3"  data-aos="fade-left">
-                    Все наши сотрудники — опытные и профессиональные
-                    специалисты IT-индустрии, которые всегда найдут
-                    правильный путь решения даже самых насущных
-                    проблем клиента.
+                    {{ $content->desc7 }}
                 </p>
                 <div class="mt-4 pl-lg-0 pl-3 translateY-1">
                 <a href="/team" class="nectar-button second-style-button magger text-white" data-aos="fade-left" style="background:none!important; border-radius:20px!important;border: 1px solid #fefefe; padding-left:26px; padding-top:10px; padding-bottom:10px; padding-right:53px;"><span>Подробнее</span></a>
@@ -361,7 +373,10 @@
         <div class="row justify-content-center">
             <div class="col-12">
                 <h2 class="title-section open-sans font-weight-bold text-uppercase text-center" data-aos="fade-up">
-                    <span class="green-letter">П</span>АРТНЕРСТВО СО МНОГИМИ КОМПАНИЯМ<span class="green-letter">И</span>
+                    <?php
+                    $title8 = strlen($content->title8);
+                    ?>
+                    <span class="green-letter">{{ substr($content->title8, 0,2)  }}</span>{!!  substr($content->title8, 2,$title8 - 4)  !!}<span class="green-letter">{!!  substr($content->title8, $title8 - 2,$title8 - 1)  !!}</span>
                 </h2>
             </div>
         </div>
@@ -378,14 +393,16 @@
 
     <div class="container" style="margin-top:7%;">
         <h2 class="title-section open-sans font-weight-bold text-uppercase text-center mt-lg-0 mt-5"  data-aos="fade-up">
-            <span class="green-letter">Н</span>ОВОСТИ И СОБЫТИЯ КОМПАНИ<span class="green-letter">И</span>
+            <?php
+            $title9 = strlen($content->title9);
+            ?>
+            <span class="green-letter">{{ substr($content->title9, 0,2)  }}</span>{!!  substr($content->title9, 2,$title9 - 4)  !!}<span class="green-letter">{!!  substr($content->title9, $title9 - 2,$title9 - 1)  !!}</span>
         </h2>
 
         <div class="row justify-content-center"  data-aos="fade-up">
             <div class="col-lg-5 col-12">
                 <p class="desc-text text-center">
-                    Мы рады поделиться событиями, новостями
-                    нашей компании и наших партнеров.
+                    {{ $content->desc9 }}
                 </p>
             </div>
         </div>
@@ -397,7 +414,7 @@
                     <a href="{{ route('news_page',['id' => $news[0]->id]) }}" class="text-white"> {{ $news[0]->title }}</a>
                 </p>
                 <p class="desc-text text-white mt-3">
-                    <a href="{{ route('news_page',['id' => $news[0]->id]) }}" class="text-white"> {{ str_limit($news[0]->description, $limit = 155, $end = '...') }}</a>
+                    <a href="{{ route('news_page',['id' => $news[0]->id]) }}" class="text-white"> {!! str_limit($news[0]->description, $limit = 155, $end = '...')  !!}</a>
                 </p>
                 <a href="{{ route('news_page',['id' => $news[0]->id]) }}" class="second-style-button text-white" style="background:none!important; padding-left:5px; padding-top:10px; padding-bottom:10px; padding-right:35px; margin-bottom:20%"><span>Читать полностью</span></a>
                 <br>
@@ -422,7 +439,7 @@
                             {{ $news[1]->title }}
                         </p>
                         <p class="desc-text"  style="line-height: 19px">
-                            {{ str_limit($news[1]->description, $limit = 95, $end = '...') }}
+                            {!! str_limit($news[1]->description, $limit = 95, $end = '...') !!}
 
                         </p>
                         </div>
@@ -440,7 +457,7 @@
                                 {{ $news[2]->title }}
                             </p>
                             <p class="desc-text" style="line-height: 19px">
-                                {{ str_limit($news[2]->description, $limit = 95, $end = '...') }}
+                                {!!  str_limit($news[2]->description, $limit = 95, $end = '...')  !!}
                             </p>
                         </div>
                             </a>

@@ -129,7 +129,7 @@
                                       placeholder="Сообщение*" required></textarea>
                         </div>
                         <div class="form-group">
-                            <a id="ajax-message2" class="btn w-100" href="#" style="border-radius: 2px !important;background: #005b52;border: 1px solid #005b52;background-image: linear-gradient(#00423c,#005b52); color: #fff;">Отправить</a>
+                            <span id="ajax-message2" class="btn w-100" href="#" style="border-radius: 2px !important;background: #005b52;border: 1px solid #005b52;background-image: linear-gradient(#00423c,#005b52); color: #fff;">Отправить</span>
                         </div>
                     </form>
                 </div>

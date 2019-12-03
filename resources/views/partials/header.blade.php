@@ -10,7 +10,7 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mx-auto" id="menu">
             <li class="nav-item active font-weight-normal mx-2">
-                <a class="nav-link menu-point" href="/about_us">О нас</a>
+                <a class="nav-link menu-point {{ \Illuminate\Support\Facades\Request::is('*about_us*') ?  'font-weight-bold' : ''}}" href="/about_us">О нас</a>
             </li>
             <li class="nav-item font-weight-normal mx-2">
                 <a class="nav-link menu-point  links" href="#services">Услуги</a>
@@ -38,10 +38,10 @@
                     Обратный звонок
                 </button>
             </li>
-            <li class="nav-item font-weight-normal mx-2">
+            <li class="nav-item font-weight-normal mx-2 d-lg-block d-none">
                 <a class="nav-link menu-point icos" style="color:#000000" href="https://www.instagram.com/logic.kg/?igshid=mu4tvy7y99kx"><i class="fab fa-instagram fa-lg"></i></a>
             </li>
-            <li class="nav-item font-weight-normal icos mx-2">
+            <li class="nav-item font-weight-normal icos mx-2 d-lg-block d-none">
                 <a class="nav-link menu-point icos" style="color: #000000;" href="https://www.facebook.com/logic.kg"><i class="fab fa-facebook-square fa-lg"></i></a>
             </li>
         </ul>
@@ -77,17 +77,19 @@
                 </li>
             </ul>
             <ul class="navbar-nav ml-auto">
-                <li class="nav-item font-weight-normal mx-2">
-                    <button class="bg-light py-2 px-4 font-weight-normal modal-button" style=" box-shadow: 0 10px 50px rgba(0,0,0,0.08), 0 13px 45px rgba(0,0,0,0.08);">
+                <li class="nav-item font-weight-normal mx-2 mt-2">
+                    <button class="bg-light py-2 px-4 font-weight-normal modal-button"  data-toggle="modal" data-target="#callModal"  style=" box-shadow: 0 10px 50px rgba(0,0,0,0.08), 0 13px 45px rgba(0,0,0,0.08);">
                         Обратный звонок
                     </button>
                 </li>
-                <li class="nav-item font-weight-normal mx-2">
-                    <a class="nav-link menu-point icos" style="color:#000000" href="#"><i class="fab fa-instagram fa-lg"></i></a>
+                <div class="d-flex py-3">
+                <li class="nav-item font-weight-normal mx-4">
+                    <a class="nav-link menu-point icos" style="color:#000000" href="https://www.instagram.com/logic.kg/?igshid=mu4tvy7y99kx"><i class="fab fa-instagram fa-lg"></i></a>
                 </li>
-                <li class="nav-item font-weight-normal icos mx-2">
-                    <a class="nav-link menu-point icos" style="color: #000000;" href="#"><i class="fab fa-facebook-square fa-lg"></i></a>
+                <li class="nav-item font-weight-normal icos mx-4">
+                    <a class="nav-link menu-point icos" style="color: #000000;" href="https://www.facebook.com/logic.kg"><i class="fab fa-facebook-square fa-lg"></i></a>
                 </li>
+                </div>
             </ul>
         </div>
     </div>

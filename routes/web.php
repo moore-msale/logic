@@ -17,16 +17,22 @@ Route::get('/', function () {
             'partners' => \App\Partner::all(),
             'news' => \App\News::all()->reverse()->take(3),
             'projects' => \App\Project::all()->reverse()->take(4),
+            'content' => \App\Mainpage::all()->first(),
         ]);
 });
 Route::post('/mail', 'MailController@mail')->name('mail');
 
 Route::get('about_us', function () {
-   return view('about_us');
+   return view('about_us',
+       ['content' => \App\About::all()->first()]
+       );
 });
 
 Route::get('team', function () {
-   return view('team');
+   return view('team',
+       [
+           'content' => \App\Team::all()->first()
+       ]);
 });
 
 Route::get('news', function () {
@@ -35,9 +41,13 @@ Route::get('news', function () {
 Route::get('news2', function () {
     return view('news2');
 })->name('news2');
+
 Route::get('projects', function () {
     return view('projects',['projects' => \App\Project::all()->reverse()]);
 });
+
+Route::get('/project_page', 'ProjectController@index')->name('project_page');
+
 Route::get('/news_page', 'NewsController@index')->name('news_page');
 
 Route::group(['prefix' => 'moo'], function () {

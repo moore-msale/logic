@@ -2,6 +2,7 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
     <meta charset="utf-8">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title>Logic - Мы способствуем эволюции ИТ - инфраструктуры организации</title>
@@ -13,6 +14,7 @@
           integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     <link rel="stylesheet" href="{{ asset('css/main.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/svg.css') }}">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
     @push('styles')
@@ -104,7 +106,6 @@
         let message = $('#form-message2');
         let datas = [name.val(),email.val(),phone.val(),message.val()];
 
-        if()
         $(".send-success-mail2").removeClass('d-none');
 
         $.ajax({
@@ -135,11 +136,11 @@
         $("#menu").on("click",".links", function (event) {
             event.preventDefault();
             if (document.location.pathname.length > 1) {
-                window.location.replace("/");
+                window.location.replace("/" + $(this).attr('href'));
             }
             var id  = $(this).attr('href'),
                 top = $(id).offset().top;
-            $('body,html').animate({scrollTop: top}, 1500);
+            $('body,html').animate({scrollTop: top}, 800);
         });
     });
 </script>

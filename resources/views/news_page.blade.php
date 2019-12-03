@@ -21,7 +21,7 @@
                     </h2>
                     <div class="row justify-content-center pt-3">
                         <p class="news-desc-desc text-left" data-aos="fade-up" style="max-width: 950px;">
-                            {{ $new->description }}
+                            {!! $new->description   !!}
                         </p>
 
                     </div>

@@ -32,7 +32,7 @@
                             {{ $new->title }}
                         </p>
                         <p class="news-desc">
-                            {{ str_limit($new->description, $limit = 75, $end = '...') }}
+                            {!! str_limit($new->description, $limit = 75, $end = '...') !!}
                         </p>
                     </div>
                     <div class="position-relative" style="bottom:100px;left:45px;">

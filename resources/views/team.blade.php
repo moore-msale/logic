@@ -17,53 +17,59 @@
             </div>
             <div class="mt-4 text-center">
                 <h2 class="title-section open-sans font-weight-bold text-uppercase" data-aos="fade-up">
-                    <span class="green-letter">Н</span>аша команд<span class="green-letter">а</span>
+                    <?php
+                    $title = strlen($content->title);
+                    ?>
+                    <span class="green-letter">{{ substr($content->title, 0,2)  }}</span>{!!  substr($content->title, 2,$title - 4)  !!}<span class="green-letter">{!!  substr($content->title, $title - 2,$title - 1)  !!}</span>
                 </h2>
                 <div class="d-flex justify-content-center">
                 <p class="team-title" data-aos="fade-up" style="max-width: 438px;">
-                    Самый ценный ресурс нашей компании - это наши сотрудники
+                   {{ $content->pretitle }}
                 </p>
                 </div>
             </div>
         </div>
 
         <div class="pt-5">
-            <img class="w-100" data-aos="flip-down" src="{{ asset('images/team.png') }}" alt="">
+            <img class="w-100" data-aos="flip-down" src="{{ asset('storage/'.$content->image) }}" alt="">
         </div>
 
         <div class="row pt-5 mt-5">
             <div class="col-lg-3 col-12">
-                <img data-aos="fade-up" src="{{ asset('images/teams1.png') }}" alt="">
+                <img data-aos="fade-up" src="{{ asset('storage/'.$content->opc1_image) }}" alt="">
                 <p data-aos="fade-up" class="team-point-title pt-4">
-                    Опытная команда
+                    {{ $content->opc1_title }}
                 </p>
                 <p data-aos="fade-up" class="team-desc pt-2">
-                    Преимущество нашей команды - это комплексная экспертиза и многолетний опыт при решении поставленной задачи.
+                    {{ $content->opc1_desc }}
                 </p>
             </div>
             <div class="col-lg-3 col-12">
-                <img data-aos="fade-up" src="{{ asset('images/teams2.png') }}" alt="">
+                <img data-aos="fade-up" src="{{ asset('storage/'.$content->opc2_image) }}" alt="">
                 <p data-aos="fade-up" class="team-point-title pt-4">
-                    Проактивность
+                    {{ $content->opc2_title }}
                 </p>
                 <p data-aos="fade-up" class="team-desc pt-2">
-                    Проактивность – мы всегда на шаг впереди. Мы проявляем инициативу, чтобы усовершенствовать процессы и стать еще лучше для наших клиентов.                </p>
+                    {{ $content->opc2_desc }}
+                </p>
             </div>
             <div class="col-lg-3 col-12">
-                <img data-aos="fade-up" src="{{ asset('images/teams3.png') }}" alt="">
+                <img data-aos="fade-up" src="{{ asset('storage/'.$content->opc3_image) }}" alt="">
                 <p data-aos="fade-up" class="team-point-title pt-4">
-                    Профессионализм
+                    {{ $content->opc3_title }}
                 </p>
                 <p data-aos="fade-up" class="team-desc pt-2">
-                    Профессионализм сотрудников, которых наша компания взращивает и воспитывает собственными силами, позволяет в полной мере удовлетворить самые высокие требования клиента.                </p>
+                    {{ $content->opc3_desc }}
+                </p>
             </div>
             <div class="col-lg-3 col-12">
-                <img data-aos="fade-up" src="{{ asset('images/teams4.png') }}" alt="">
+                <img data-aos="fade-up" src="{{ asset('storage/'.$content->opc4_image) }}" alt="">
                 <p data-aos="fade-up" class="team-point-title pt-4">
-                    Командный дух
+                    {{ $content->opc4_title }}
                 </p>
                 <p data-aos="fade-up" class="team-desc pt-2">
-                    Работая в команде мы достигаем отличных результатов, покоряем новые вершины, мыслим масштабно и находим решения на сложные нестандартные задачи.                </p>
+                    {{ $content->opc4_desc }}
+                </p>
             </div>
         </div>
     </div>
