@@ -72,6 +72,24 @@
                 </p>
             </div>
         </div>
+
+
+        <div class="pt-5 mt-3">
+            @if(count($vacancies))
+                <p class="team-point-title pb-3 text-center" data-aos="fade-up">
+                    Открытые вакансии
+                </p>
+                @foreach($vacancies as $vacancy)
+                    <div class="py-4 mb-4" style="padding: 0% 10%; background-color:#F6F6F6;" data-aos="fade-up">
+                        {!! $vacancy->data !!}
+                    </div>
+                @endforeach
+            @else
+                <p class="team-point-title pb-3 text-center" data-aos="fade-up">
+                    Вакансии отсутствуют
+                </p>
+            @endif
+        </div>
     </div>
 </div>
 

@@ -31,7 +31,8 @@ Route::get('about_us', function () {
 Route::get('team', function () {
    return view('team',
        [
-           'content' => \App\Team::all()->first()
+           'content' => \App\Team::all()->first(),
+           'vacancies' => \App\Vacancy::all(),
        ]);
 });
 

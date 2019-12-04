@@ -28,8 +28,8 @@
                 <div class="col-lg-3 col-12 mt-4">
                     <a href="{{ route('project_page',['id' => $project->id]) }}" style="color:#000000; text-decoration: none;">
                     <div class="news-block h-100 project-bg" data-aos="fade-up" style="background-image: url({{ asset('images/projects.png') }})">
-                        <div class="project-image" style="background-image: url({{ asset('storage/'.str_replace('\\', '/', $project->image)) }})">
-
+                        <div class="text-center" style="height:88px;">
+                        <img class="px-5 pt-4" style="max-height: 88px; max-width: 100%;" src="{{asset('storage/'.$project->logo)}}" alt="">
                         </div>
                         <div class="p-3">
                             <p class="news-title pt-3">

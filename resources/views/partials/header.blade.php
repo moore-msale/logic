@@ -1,3 +1,7 @@
+<?php
+    $contact = \App\Contact::all()->first();
+?>
+
 <nav class="navbar menuse navbar-expand-lg navbar-light bg-transparent fixed-top d-lg-block d-none">
     <div class="container">
     <a class="navbar-brand" href="/">
@@ -39,10 +43,10 @@
                 </button>
             </li>
             <li class="nav-item font-weight-normal mx-2 d-lg-block d-none">
-                <a class="nav-link menu-point icos" style="color:#000000" href="https://www.instagram.com/logic.kg/?igshid=mu4tvy7y99kx"><i class="fab fa-instagram fa-lg"></i></a>
+                <a class="nav-link menu-point icos" style="color:#000000" href="{{$contact->instagram_link}}"><i class="fab fa-instagram fa-lg"></i></a>
             </li>
             <li class="nav-item font-weight-normal icos mx-2 d-lg-block d-none">
-                <a class="nav-link menu-point icos" style="color: #000000;" href="https://www.facebook.com/logic.kg"><i class="fab fa-facebook-square fa-lg"></i></a>
+                <a class="nav-link menu-point icos" style="color: #000000;" href="{{ $contact->facebook_link }}"><i class="fab fa-facebook-square fa-lg"></i></a>
             </li>
         </ul>
     </div>
@@ -59,21 +63,27 @@
         </button>
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mx-auto">
+            <ul class="navbar-nav mx-auto" id="menu2">
                 <li class="nav-item active font-weight-normal mx-2">
                     <a class="nav-link menu-point" href="/about_us">О нас</a>
                 </li>
                 <li class="nav-item font-weight-normal mx-2">
-                    <a class="nav-link menu-point" href="#">Услуги</a>
+                    <a class="nav-link menu-point  links" href="#services">Услуги</a>
                 </li>
                 <li class="nav-item font-weight-normal mx-2">
-                    <a class="nav-link menu-point" href="#">Проекты</a>
+                    <a class="nav-link menu-point  links" href="#projects">Проекты</a>
                 </li>
                 <li class="nav-item font-weight-normal mx-2">
-                    <a class="nav-link menu-point" href="#">Вакансии</a>
+                    <a class="nav-link menu-point  links" href="#clients">Клиенты</a>
                 </li>
                 <li class="nav-item font-weight-normal mx-2">
-                    <a class="nav-link menu-point" href="#">Контакты</a>
+                    <a class="nav-link menu-point  links" href="#jobs">Вакансии</a>
+                </li>
+                <li class="nav-item font-weight-normal mx-2">
+                    <a class="nav-link menu-point  links" href="#partners">Партнеры</a>
+                </li>
+                <li class="nav-item font-weight-normal mx-2">
+                    <a class="nav-link menu-point  links" href="#contacts">Контакты</a>
                 </li>
             </ul>
             <ul class="navbar-nav ml-auto">
@@ -84,10 +94,10 @@
                 </li>
                 <div class="d-flex py-3">
                 <li class="nav-item font-weight-normal mx-4">
-                    <a class="nav-link menu-point icos" style="color:#000000" href="https://www.instagram.com/logic.kg/?igshid=mu4tvy7y99kx"><i class="fab fa-instagram fa-lg"></i></a>
+                    <a class="nav-link menu-point icos" style="color:#000000" href="{{$contact->instagram_link}}"><i class="fab fa-instagram fa-lg"></i></a>
                 </li>
                 <li class="nav-item font-weight-normal icos mx-4">
-                    <a class="nav-link menu-point icos" style="color: #000000;" href="https://www.facebook.com/logic.kg"><i class="fab fa-facebook-square fa-lg"></i></a>
+                    <a class="nav-link menu-point icos" style="color: #000000;" href="{{ $contact->facebook_link }}"><i class="fab fa-facebook-square fa-lg"></i></a>
                 </li>
                 </div>
             </ul>

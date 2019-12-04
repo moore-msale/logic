@@ -70,7 +70,12 @@
                 <div class="col-1 d-lg-block d-none"></div>
                 <div class="col-lg-4 col-12 text-center d-flex pt-lg-0 pt-5">
                     <div class="position-absolute" style="z-index: 999; top:50%; left:50%; transform: translate(-50%, -50%);">
-                        <a href="{{ $content->video_link }}" data-fancybox="logic-video"><img src="{{ asset('images/play_button.png') }}" alt=""></a></div>
+                        @if(isset($content->video_link))
+                            <a href="{{ $content->video_link }}" data-fancybox="logic-video"><img src="{{ asset('images/play_button.png') }}" alt=""></a></div>
+                        @else
+                        <img src="{{ asset('images/play_button.png') }}" alt=""></div>
+                        @endif
+
                     <img class="mx-auto" style="width:60%;" src="{{ asset('images/first_section_video.png') }}" alt="">
                 </div>
             </div>
@@ -262,60 +267,40 @@
         <div class="container bg mt-5 p-lg-5 p-0 forth_section"  style="background-image: url({{ asset('images/forth_section_bg.png') }}); box-shadow: 0 30px 50px 0px #4e4e4e5c; background-size: 100% 100%">
             <div class="row">
                 <div class="col-lg-4 col-12 p-3">
-                    @if(isset($projects[0]))
-                        <a href="{{ route('project_page',['id' => $projects[0]->id]) }}" style="color:#000000;">
-                    <div class="p-4 project-block" data-aos="fade-right" style="background-image: url({{ asset('images/projects.png') }});">
+                    @foreach($projects as $project)
+                    @if($loop->index < 2)
+                        <a href="{{ route('project_page',['id' => $project->id]) }}" style="color:#000000; text-decoration: none;">
+                    <div class="p-4 project-block mt-3" data-aos="fade-right" style="background-image: url({{ asset('images/projects.png') }});">
                     <p class="ex-title">
-                        {{ $projects[0]->title }}
+                        {{ $project->title }}
                     </p>
                     <p class="ex-text">
-                        {{ $projects[0]->mini_desc }}
+                        {{ $project->mini_desc }}
                     </p>
                     </div>
                         </a>
                     @endif
-                    @if(isset($projects[1]))
-                            <a href="{{ route('project_page',['id' => $projects[1]->id]) }}" style="color:#000000;">
-                    <div class="p-4 project-block mt-4" data-aos="fade-right" style="background-image: url({{ asset('images/projects.png') }});">
-                        <p class="ex-title">
-                            {{ $projects[1]->title }}
-                        </p>
-                        <p class="ex-text">
-                            {{ $projects[1]->mini_desc }}
-                        </p>
-                    </div>
-                            </a>
-                        @endif
+                    @endforeach
                     <div class="pt-5 d-lg-block d-none translateY-1">
                     <a href="/projects" class="third-button d-none-media"  data-aos="fade-right" style="background:none!important; border-radius:20px!important;border: 1px solid #000000; padding-left:26px; padding-top:10px; padding-bottom:10px; padding-right:53px; margin-top:5%;"><span style="color:black;">Подробнее</span></a>
                     </div>
                     </div>
 
                 <div class="col-lg-4 col-12 p-3">
-                    @if(isset($projects[2]))
-                        <a href="{{ route('project_page',['id' => $projects[2]->id]) }}" style="color:#000000;">
-                    <div class="p-4 project-block" data-aos="fade-right" style="background-image: url({{ asset('images/projects.png') }});">
+                    @foreach($projects as $project)
+                    @if($loop->index > 1)
+                        <a href="{{ route('project_page',['id' => $project->id]) }}" style="color:#000000; text-decoration: none;">
+                    <div class="p-4 project-block mt-3" data-aos="fade-right" style="background-image: url({{ asset('images/projects.png') }});">
                         <p class="ex-title">
-                            {{ $projects[2]->title }}
+                            {{ $project->title }}
                         </p>
                         <p class="ex-text">
-                            {{ $projects[2]->mini_desc }}
+                            {{ $project->mini_desc }}
                         </p>
                     </div>
                         </a>
                     @endif
-                        @if(isset($projects[3]))
-                            <a href="{{ route('project_page',['id' => $projects[3]->id]) }}" style="color:#000000;">
-                    <div class="p-4 project-block mt-4" data-aos="fade-right" style="background-image: url({{ asset('images/projects.png') }});">
-                        <p class="ex-title">
-                            {{ $projects[3]->title }}
-                        </p>
-                        <p class="ex-text" >
-                            {{ $projects[3]->mini_desc }}
-                        </p>
-                    </div>
-                            </a>
-                        @endif
+                    @endforeach
                 </div>
                 <div class="pt-5 d-lg-none d-block pl-4 translateY-1">
                     <a href="/projects" class="third-button d-none-media" data-aos="fade-right" style="background:none!important; border-radius:20px!important;border: 1px solid #000000; padding-left:26px; padding-top:10px; padding-bottom:10px; padding-right:53px; margin-top:5%;"><span style="color:black;">Подробнее</span></a>
@@ -406,17 +391,38 @@
                 </p>
             </div>
         </div>
-
+        {{--@dd($news->)--}}
+        <?php
+            $new1 = null;
+            $new2 = null;
+            $new3 = null;
+        ?>
+        @foreach($news as $new)
+            {{--@dd($loop->index)--}}
+            @if($loop->index == 0)
+                <?php
+                    $new1 = $new;
+                ?>
+                @elseif($loop->index == 1)
+                <?php
+                $new2 = $new;
+                ?>
+                @else
+                <?php
+                $new3 = $new;
+                ?>
+            @endif
+        @endforeach
         <div class="row mt-5">
             <div class="col-lg-6 col-12 p-5" data-aos="fade-right" style="background-image: url({{ asset('images/news_block.png') }}); box-shadow: 0px 4px 50px rgba(0, 0, 0, 0.15);">
-                <p class="desc-text text-white">{{ \Carbon\Carbon::parse($news[0]->created_at)->format('Y.m.d') }}</p>
+                <p class="desc-text text-white">{{ \Carbon\Carbon::parse($new1->created_at)->format('Y.m.d') }}</p>
                 <p class="news-title text-white mt-3">
-                    <a href="{{ route('news_page',['id' => $news[0]->id]) }}" class="text-white"> {{ $news[0]->title }}</a>
+                    <a href="{{ route('news_page',['id' => $new1->id]) }}" class="text-white" style="text-decoration: none;"> {{ $new1->title }}</a>
                 </p>
                 <p class="desc-text text-white mt-3">
-                    <a href="{{ route('news_page',['id' => $news[0]->id]) }}" class="text-white"> {!! str_limit($news[0]->description, $limit = 155, $end = '...')  !!}</a>
+                    <a href="{{ route('news_page',['id' => $new1->id]) }}" class="text-white" style="text-decoration: none;"> {!! str_limit($new1->description, $limit = 155, $end = '...')  !!}</a>
                 </p>
-                <a href="{{ route('news_page',['id' => $news[0]->id]) }}" class="second-style-button text-white" style="background:none!important; padding-left:5px; padding-top:10px; padding-bottom:10px; padding-right:35px; margin-bottom:20%"><span>Читать полностью</span></a>
+                <a href="{{ route('news_page',['id' => $new1->id]) }}" class="second-style-button text-white" style="background:none!important; padding-left:5px; padding-top:10px; padding-bottom:10px; padding-right:35px; margin-bottom:20%; text-decoration: none;"><span>Читать полностью</span></a>
                 <br>
                 <button class="first-style-button open-sans text-white pointer mt-5 translateY-1">
                     <a href="/news" class="text-white">Все новости</a>
@@ -429,17 +435,17 @@
             <div class="container-fluid mt-3">
                 <div class="row">
                     <div class="col-lg-6 col-12 px-0" data-aos="fade-left">
-                        @if(isset($news[1]))
-                            <a style="text-decoration: none;" href="{{ route('news_page', ['id' => $news[1]->id]) }}">
+                        @if(isset($new2))
+                            <a style="text-decoration: none;" href="{{ route('news_page', ['id' => $new2->id]) }}">
                         <div class="news-block p-3 mr-lg-2 mr-0 h-100" style="box-shadow: 0px 4px 50px rgba(0, 0, 0, 0.15); color:#000000;">
                         <p class="desc-text">
-                            {{ \Carbon\Carbon::parse($news[1]->created_at)->format('Y.m.d') }}
+                            {{ \Carbon\Carbon::parse($new2->created_at)->format('Y.m.d') }}
                         </p>
                         <p class="news-title mt-3">
-                            {{ $news[1]->title }}
+                            {{ $new2->title }}
                         </p>
                         <p class="desc-text"  style="line-height: 19px">
-                            {!! str_limit($news[1]->description, $limit = 95, $end = '...') !!}
+                            {!! str_limit($new2->description, $limit = 95, $end = '...') !!}
 
                         </p>
                         </div>
@@ -447,17 +453,17 @@
                             @endif
                     </div>
                     <div class="col-lg-6 col-12 px-0 pt-lg-0 pt-3"  data-aos="fade-left">
-                        @if(isset($news[2]))
-                            <a style="text-decoration: none;" href="{{ route('news_page', ['id' => $news[2]->id]) }}">
+                        @if(isset($new3))
+                            <a style="text-decoration: none;" href="{{ route('news_page', ['id' => $new3->id]) }}">
                         <div class="news-block p-3 ml-lg-2 ml-0 h-100" style="box-shadow: 0px 4px 50px rgba(0, 0, 0, 0.15); color: #000000;">
                             <p class="desc-text">
-                                {{ \Carbon\Carbon::parse($news[2]->created_at)->format('Y.m.d') }}
+                                {{ \Carbon\Carbon::parse($new3->created_at)->format('Y.m.d') }}
                             </p>
                             <p class="news-title mt-3">
-                                {{ $news[2]->title }}
+                                {{ $new3->title }}
                             </p>
                             <p class="desc-text" style="line-height: 19px">
-                                {!!  str_limit($news[2]->description, $limit = 95, $end = '...')  !!}
+                                {!!  str_limit($new3->description, $limit = 95, $end = '...')  !!}
                             </p>
                         </div>
                             </a>
@@ -468,7 +474,7 @@
             </div>
         </div>
     </div>
-    </div>
+
     <div id="contacts"></div>
 @endsection
 

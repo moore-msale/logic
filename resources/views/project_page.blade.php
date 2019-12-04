@@ -22,12 +22,24 @@
 
                 </div>
             </div>
-            <div class="row justify-content-end pt-5">
+            <div class="row justify-content-end pt-lg-5 pt-2">
+                <div class="col-lg-4 col-12 pb-lg-0 pb-5">
+                    <div class="pt-5">
+                        @if(isset($project->link))
+                            <a href="{{$project->link}}">
+                                <img class="w-75" src="{{ asset('storage/'. $project->logo) }}" alt="">
+                            </a>
+                            @else
+                            <img class="w-75" src="{{ asset('storage/'. $project->logo) }}" alt="">
+                            @endif
+
+                    </div>
+                </div>
                 <div class="col-lg-8 col-12 position-relative" style="background-color: #F6F6F6;">
                     <div class="row justify-content-between p-lg-5 p-1">
-                        <div class="col-lg-3 col-12">
-                            <img class="w-75" src="{{ asset('storage/'.$project->logo) }}" alt="">
-                        </div>
+                        {{--<div class="col-lg-3 col-12">--}}
+                            {{--<img class="w-75" src="{{ asset('storage/'.$project->logo) }}" alt="">--}}
+                        {{--</div>--}}
                         <div class="col-lg-9 col-12">
                             <h3 class="project-title font-weight-bold pb-4" data-aos="fade-up">
                                 {{$project->title}}
@@ -36,7 +48,7 @@
                                 {!! $project->description !!}
                             </p>
                         </div>
-                        <img class="position-absolute d-lg-block d-none" style="top:35%; left:-40%; width:50%; box-shadow: 10px 15px 50px rgba(0, 0, 0, 0.25);" src="{{ asset('storage/'.$project->image) }}" alt="">
+                        {{--<img class="position-absolute d-lg-block d-none" style="top:35%; left:-40%; width:50%;" src="{{ asset('storage/'.$project->logo) }}" alt="">--}}
                         <img class="position-absolute d-lg-block d-none" style="top:-8%; left:28%;" src="{{ asset('images/koch.png') }}" alt="">
                     </div>
                 </div>

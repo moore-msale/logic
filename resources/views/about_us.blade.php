@@ -26,7 +26,7 @@
 @endpush
 @section('content')
 {{--    @dd(\Illuminate\Support\Facades\Request::is('*about_us*'))--}}
-    <div class="container-fluid" style="padding-top: 10%; padding-bottom: 10%;">
+    <div class="container-fluid" style="padding-top: 10%; padding-bottom: 10%; overflow-x: hidden">
         <div class="container">
             <div class="row">
                 <div class="col-lg-7 col-12 pt-lg-0 pt-5">
@@ -125,7 +125,7 @@
             </div>
         </div>
     </div>
-    <div class="container-fluid" style="background:white;">
+    <div class="container-fluid" style="background:white; overflow-x: hidden; overflow-y: hidden;">
         <div class="container" style="padding:7% 0%;">
             <div class="row" style="padding-bottom: 15%;">
                 <div class="d-lg-none d-block col-12">

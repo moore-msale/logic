@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/png" href="{{ asset('images/favicon.png') }}">
 
     <title>Logic - Мы способствуем эволюции ИТ - инфраструктуры организации</title>
 
@@ -97,8 +98,22 @@
     });
 </script>
 <script>
+    function dis_success() {
+        $(".send-success-mail2").addClass('d-none');
+        $('#ajax-message2').removeClass('d-none');
+        $('#callModal').modal('hide');
+    }
+</script>
+<script>
+    function dis_error() {
+        $(".send-error-mail2").addClass('d-none');
+        $('#ajax-message2').removeClass('d-none');
+    }
+</script>
+<script>
     $('#ajax-message2').click(e => {
         e.preventDefault();
+        $('#ajax-message2').addClass('d-none');
         let name = $('#form-name2');
         let email = $('#form-email2');
         let phone = $('#form-phone2');
@@ -106,7 +121,7 @@
         let message = $('#form-message2');
         let datas = [name.val(),email.val(),phone.val(),message.val()];
 
-        $(".send-success-mail2").removeClass('d-none');
+        // $(".send-success-mail2").removeClass('d-none');
 
         $.ajax({
             url: '{{ route('mail') }}',
@@ -123,10 +138,14 @@
                 $('#form-name2').val('');
                 $('#form-phone2').val('');
                 $('#form-email2').val('');
+                $('#form-company2').val('');
                 $('#form-message2').val('');
                 $(".send-success-mail2").removeClass('d-none');
+                setTimeout(dis_success, 5000);
             },
             error: () => {
+                $(".send-error-mail2").removeClass('d-none');
+                setTimeout(dis_error, 5000);
             }
         });
     })
@@ -134,6 +153,19 @@
 <script>
     $(document).ready(function(){
         $("#menu").on("click",".links", function (event) {
+            event.preventDefault();
+            if (document.location.pathname.length > 1) {
+                window.location.replace("/" + $(this).attr('href'));
+            }
+            var id  = $(this).attr('href'),
+                top = $(id).offset().top;
+            $('body,html').animate({scrollTop: top}, 800);
+        });
+    });
+</script>
+<script>
+    $(document).ready(function(){
+        $("#menu2").on("click",".links", function (event) {
             event.preventDefault();
             if (document.location.pathname.length > 1) {
                 window.location.replace("/" + $(this).attr('href'));
