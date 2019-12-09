@@ -25,10 +25,11 @@
     </style>
 @endpush
 @section('content')
+    <div style="overflow-x: hidden; overflow-y: hidden">
 {{--    @dd(\Illuminate\Support\Facades\Request::is('*about_us*'))--}}
-    <div class="container-fluid" style="padding-top: 10%; padding-bottom: 10%; overflow-x: hidden">
+    <div class="container-fluid" style="padding-top: 10%; padding-bottom: 10%;">
         <div class="container">
-            <div class="row">
+            <div class="row justify-content-lg-start justify-content-md-center justify-content-start">
                 <div class="col-lg-7 col-12 pt-lg-0 pt-5">
                     <div class="sand-step d-lg-flex d-none align-items-center" data-aos="fade-right">
                         <a style="color: #000000;" href="/">Главная</a><img class="mx-2" src="{{ asset('images/arrow.svg') }}" alt=""><a style="color: #000000;" href="#">О компании</a>
@@ -49,7 +50,7 @@
                     </p>
                 </div>
                 </div>
-                <div class="col-lg-5 col-12 position-relative" style="padding-top:8%;">
+                <div class="col-lg-5 col-md-8 col-12 position-relative" style="padding-top:8%;">
                     <img class="w-100" src="{{ asset('images/klyaksa.png') }}" alt="">
                     <div class="position-absolute px-5 derevo" style="top:38%; left:13%;">
                     @include('partials.about_svg')
@@ -125,7 +126,7 @@
             </div>
         </div>
     </div>
-    <div class="container-fluid" style="background:white; overflow-x: hidden; overflow-y: hidden;">
+    <div class="container-fluid" style="background:white;">
         <div class="container" style="padding:7% 0%;">
             <div class="row" style="padding-bottom: 15%;">
                 <div class="d-lg-none d-block col-12">
@@ -178,7 +179,7 @@
                 </div>
             </div>
             <div class="row" style="padding-bottom:7%;">
-                <div class="col-lg-6 col-12 pr-lg-5 pr-0">
+                <div class="col-md-6 col-12 pr-lg-5 pr-0">
                     <img class="pb-lg-5 pb-3" data-aos="fade-right" src="{{ asset('storage/'.$content->plus1_image) }}" alt="">
                     <h3 class="logic-text text-uppercase" style="font-size:30px;" data-aos="fade-right">
                         {{ $content->plus1_title }}
@@ -187,7 +188,7 @@
                         {{ $content->plus1_desc }}
                     </p>
                 </div>
-                <div class="col-lg-6 col-12 pl-lg-5 pl-3">
+                <div class="col-md-6 col-12 pl-lg-5 pl-3">
                     <img class="pb-lg-5 pb-3" data-aos="fade-left" src="{{ asset('storage/'.$content->plus2_image) }}" alt="">
                     <h3 class="logic-text text-uppercase" data-aos="fade-left" style="font-size:30px;">
                         {{ $content->plus2_title }}
@@ -204,7 +205,7 @@
                 </h2>
                 </div>
                 <div class="col-12"></div>
-                <div class="col-lg-4 col-12">
+                <div class="col-lg-4 col-md-4 col-12">
                     <img class="pt-lg-0 pt-4" data-aos="fade-up" src="{{ asset('storage/'.$content->adv1_image) }}" alt="">
                     <h3 data-aos="fade-up" class="adv-title font-weight-bold pt-lg-5 pt-3">
                         {{ $content->adv1_title }}
@@ -213,7 +214,7 @@
                         {{ $content->adv1_desc }}
                     </p>
                 </div>
-                <div class="col-lg-4 col-12">
+                <div class="col-lg-4 col-md-4 col-12">
                     <img class="pt-lg-0 pt-4" data-aos="fade-up" src="{{ asset('storage/'.$content->adv2_image) }}" alt="">
                     <h3 data-aos="fade-up" class="adv-title font-weight-bold pt-lg-5 pt-3">
                         {{ $content->adv2_title }}
@@ -222,7 +223,7 @@
                         {{ $content->adv2_desc }}
                     </p>
                 </div>
-                <div class="col-lg-4 col-12">
+                <div class="col-lg-4 col-md-4 col-12">
                     <img class="pt-lg-0 pt-4" data-aos="fade-up" src="{{ asset('storage/'.$content->adv3_image) }}" alt="">
                     <h3 data-aos="fade-up" class="adv-title font-weight-bold pt-lg-5 pt-3">
                         {{ $content->adv3_title }}
@@ -235,7 +236,7 @@
     </div>
 
 </div>
-
+    </div>
 
 
 @endsection

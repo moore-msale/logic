@@ -25,7 +25,7 @@
 
             <div class="row pt-5">
                 @foreach($news as $new)
-                <div class="col-lg-3 col-12 mt-4">
+                <div class="col-lg-3 col-md-6 col-12 mt-4">
                     <div class="news-block p-3 h-100" data-aos="fade-up">
                         <img src="{{ asset('images/newspaper.png') }}" alt="">
                         <p class="news-title pt-3">

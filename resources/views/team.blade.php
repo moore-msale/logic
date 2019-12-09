@@ -35,7 +35,7 @@
         </div>
 
         <div class="row pt-5 mt-5">
-            <div class="col-lg-3 col-12">
+            <div class="col-lg-3 col-md-6 col-12">
                 <img data-aos="fade-up" src="{{ asset('storage/'.$content->opc1_image) }}" alt="">
                 <p data-aos="fade-up" class="team-point-title pt-4">
                     {{ $content->opc1_title }}
@@ -44,7 +44,7 @@
                     {{ $content->opc1_desc }}
                 </p>
             </div>
-            <div class="col-lg-3 col-12">
+            <div class="col-lg-3 col-md-6 col-12">
                 <img data-aos="fade-up" src="{{ asset('storage/'.$content->opc2_image) }}" alt="">
                 <p data-aos="fade-up" class="team-point-title pt-4">
                     {{ $content->opc2_title }}
@@ -53,7 +53,7 @@
                     {{ $content->opc2_desc }}
                 </p>
             </div>
-            <div class="col-lg-3 col-12">
+            <div class="col-lg-3 col-md-6 col-12">
                 <img data-aos="fade-up" src="{{ asset('storage/'.$content->opc3_image) }}" alt="">
                 <p data-aos="fade-up" class="team-point-title pt-4">
                     {{ $content->opc3_title }}
@@ -62,7 +62,7 @@
                     {{ $content->opc3_desc }}
                 </p>
             </div>
-            <div class="col-lg-3 col-12">
+            <div class="col-lg-3 col-md-6 col-12">
                 <img data-aos="fade-up" src="{{ asset('storage/'.$content->opc4_image) }}" alt="">
                 <p data-aos="fade-up" class="team-point-title pt-4">
                     {{ $content->opc4_title }}

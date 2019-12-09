@@ -29,7 +29,7 @@
             </div>
             <div class="row pt-5">
                 @foreach($new->images as $image)
-                <div class="col-lg-4 col-12 pt-4">
+                <div class="col-lg-4 col-md-6 col-12 pt-4">
                     <a href="{{ asset('storage/'.$image->image)  }}"  data-fancybox="new-{{$new->id}}" >
                     <img class="w-100" src="{{ asset('storage/'.$image->image) }}" alt="">
                     </a>

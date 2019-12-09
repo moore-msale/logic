@@ -25,7 +25,7 @@
 
             <div class="row pt-5">
                 @foreach($projects as $project)
-                <div class="col-lg-3 col-12 mt-4">
+                <div class="col-lg-3 col-md-6 col-12 mt-4">
                     <a href="{{ route('project_page',['id' => $project->id]) }}" style="color:#000000; text-decoration: none;">
                     <div class="news-block h-100 project-bg" data-aos="fade-up" style="background-image: url({{ asset('images/projects.png') }})">
                         <div class="text-center" style="height:88px;">

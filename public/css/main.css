@@ -287,8 +287,77 @@ body
     font-size: 16px;
     line-height: 140%;
 }
-
-@media screen and (max-width: 768px){
+@media screen and (min-width: 1000px) and (max-width: 1025px)
+{
+    .text-mo
+    {
+        font-size: 180px;
+        left:0px;
+    }
+    .cont
+    {
+        overflow-x: hidden;
+    }
+    .call-btn
+    {
+        display:none;
+    }
+}
+@media screen and (min-width: 600px) and (max-width: 1000px)  {
+    body
+    {
+        overflow-x: hidden!important;
+    }
+    .text-mo
+    {
+        font-size: 120px;
+        left:0px;
+    }
+    .collona-advant
+    {
+        width:50%;
+    }
+    .ex-collona
+    {
+        width:49%;
+    }
+    .third_section
+    {
+        background: none!important;
+        height:auto!important;
+    }
+    .forth_section
+    {
+        background: none!important;
+        box-shadow: none!important;
+    }
+    .clients
+    {
+        margin-top:15%!important;
+    }
+    .path_1
+    {
+        width: 244px!important;
+    }
+    .derevo
+    {
+        top:30%!important;
+        left:16%!important;
+    }
+    .about_titles
+    {
+        font-size: 33px;
+    }
+    .footer
+    {
+        overflow-x: hidden;
+    }
+    .cont
+    {
+        overflow-x: hidden;
+    }
+}
+@media screen and (max-width: 600px){
     body
     {
         overflow-x: hidden!important;

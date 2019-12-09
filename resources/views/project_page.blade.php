@@ -22,8 +22,8 @@
 
                 </div>
             </div>
-            <div class="row justify-content-end pt-lg-5 pt-2">
-                <div class="col-lg-4 col-12 pb-lg-0 pb-5">
+            <div class="row justify-content-lg-end justify-content-md-center pt-lg-5 pt-2">
+                <div class="col-lg-4 col-md-6 col-12 pb-lg-0 pb-5">
                     <div class="pt-5">
                         @if(isset($project->link))
                             <a href="{{$project->link}}">

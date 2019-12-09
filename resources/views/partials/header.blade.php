@@ -37,7 +37,7 @@
             </li>
         </ul>
         <ul class="navbar-nav ml-auto">
-            <li class="nav-item font-weight-normal mx-2">
+            <li class="nav-item call-btn font-weight-normal mx-2">
                 <button class="bg-light py-2 px-4 font-weight-normal modal-button pointer" data-toggle="modal" data-target="#callModal" style=" box-shadow: 0 10px 50px rgba(0,0,0,0.08), 0 13px 45px rgba(0,0,0,0.08);">
                     Обратный звонок
                 </button>

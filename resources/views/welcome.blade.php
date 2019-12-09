@@ -122,7 +122,7 @@
             </p>
         </h2>
         <div class="container pt-4">
-        <div class="row">
+        <div class="row justify-content-lg-start justify-content-md-center justify-content-start">
             <div class="collona-advant p-4 text-center" data-aos="fade-right" style="background-image: url({{ asset('images/advant1.png') }})">
                 <img src="{{ asset('storage/'.$content->step1_image) }}" alt="">
                 <p class="advant-text text-white pt-2">
@@ -170,7 +170,7 @@
     </div>
     <div class="container-fluid bg d-flex align-items-center third_section" id="services" style="background-image: url({{ asset('images/third_section_bg.png') }}); height:1000px; background-size: auto; overflow-x: hidden">
         <div class="container">
-            <div class="row">
+            <div class="row justify-content-lg-start justify-content-md-between justify-content-start">
                 <div class="d-lg-none d-block my-5 col-12">
                 <div class="text-uppercase text-center" data-aos="fade-up" style="line-height: 140%; font-size: 30px; font-weight: 700;">
                     {{ $content->title4 }}
@@ -194,7 +194,7 @@
                         </p>
                     </div>
                 </div>
-                <div class="ex-collona mt-lg-0 mt-3">
+                <div class="ex-collona mt-lg-0 mt-lg-0 mt-md-0 mt-3">
                     <div class="p-3 bg ex-block" data-aos="fade-right" style="background-image: url({{ asset('images/ex1.png') }})">
                         <p class="ex-title">
                             {{ $content->expert3_title }}
@@ -266,7 +266,7 @@
         </h2>
         <div class="container bg mt-5 p-lg-5 p-0 forth_section"  style="background-image: url({{ asset('images/forth_section_bg.png') }}); box-shadow: 0 30px 50px 0px #4e4e4e5c; background-size: 100% 100%">
             <div class="row">
-                <div class="col-lg-4 col-12 p-3">
+                <div class="col-lg-4 col-md-6 col-12 p-3">
                     @foreach($projects as $project)
                     @if($loop->index < 2)
                         <a href="{{ route('project_page',['id' => $project->id]) }}" style="color:#000000; text-decoration: none;">
@@ -286,7 +286,7 @@
                     </div>
                     </div>
 
-                <div class="col-lg-4 col-12 p-3">
+                <div class="col-lg-4 col-md-6 col-12 p-3">
                     @foreach($projects as $project)
                     @if($loop->index > 1)
                         <a href="{{ route('project_page',['id' => $project->id]) }}" style="color:#000000; text-decoration: none;">
@@ -322,7 +322,7 @@
         </div>
         <div class="row justify-content-center mt-5">
             @foreach($clients as $client)
-            <div class="col-lg-2 col-4 p-lg-5 p-3 client-column d-flex align-items-center" data-aos="fade-up">
+            <div class="col-lg-2 col-md-3 col-4 p-lg-5 p-3 client-column d-flex align-items-center" data-aos="fade-up">
                 <a href="{{$client->link}}" data>
                 <img class="img-fluid mx-auto client-image" src="{{ asset('storage/'.$client->image) }}" alt="">
                 </a>
@@ -367,7 +367,7 @@
         </div>
         <div class="row justify-content-center mt-4">
             @foreach($partners as $partner)
-            <div class="col-lg-2 col-4 client-column p-lg-5 p-3 d-flex align-items-center" data-aos="fade-up">
+            <div class="col-lg-2 col-md-3 col-4 client-column p-lg-5 p-3 d-flex align-items-center" data-aos="fade-up">
                 <a href="{{ $partner->link }}">
                 <img class="img-fluid client-image mx-auto" src="{{ asset('storage/'.$partner->image) }}" alt="">
                 </a>
@@ -434,10 +434,10 @@
                 </a>
             <div class="container-fluid mt-3">
                 <div class="row">
-                    <div class="col-lg-6 col-12 px-0" data-aos="fade-left">
+                    <div class="col-md-6 col-12 px-0" data-aos="fade-left">
                         @if(isset($new2))
                             <a style="text-decoration: none;" href="{{ route('news_page', ['id' => $new2->id]) }}">
-                        <div class="news-block p-3 mr-lg-2 mr-0 h-100" style="box-shadow: 0px 4px 50px rgba(0, 0, 0, 0.15); color:#000000;">
+                        <div class="news-block p-3 mr-md-2 mr-0 h-100" style="box-shadow: 0px 4px 50px rgba(0, 0, 0, 0.15); color:#000000;">
                         <p class="desc-text">
                             {{ \Carbon\Carbon::parse($new2->created_at)->format('Y.m.d') }}
                         </p>
@@ -452,10 +452,10 @@
                             </a>
                             @endif
                     </div>
-                    <div class="col-lg-6 col-12 px-0 pt-lg-0 pt-3"  data-aos="fade-left">
+                    <div class="col-md-6 col-12 px-0 pt-md-0 pt-3"  data-aos="fade-left">
                         @if(isset($new3))
                             <a style="text-decoration: none;" href="{{ route('news_page', ['id' => $new3->id]) }}">
-                        <div class="news-block p-3 ml-lg-2 ml-0 h-100" style="box-shadow: 0px 4px 50px rgba(0, 0, 0, 0.15); color: #000000;">
+                        <div class="news-block p-3 ml-md-2 ml-0 h-100" style="box-shadow: 0px 4px 50px rgba(0, 0, 0, 0.15); color: #000000;">
                             <p class="desc-text">
                                 {{ \Carbon\Carbon::parse($new3->created_at)->format('Y.m.d') }}
                             </p>
